@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nós ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff4e9b, #ff9acb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    background: rgba(0,0,0,0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 32px;
+}
+
+#contador {
+    font-size: 26px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Estamos juntos há ❤️</h1>
+    <div id="contador"></div>
+</div>
+
+<script>
+const dataInicio = new Date(2026, 0, 22, 20, 16, 0); 
+// Ano, Mês (0=Janeiro), Dia, Hora, Minuto, Segundo
+
+function atualizarContador() {
+    const agora = new Date();
+    const diferenca = agora - dataInicio;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
+
+    document.getElementById("contador").innerHTML =
+        dias + " dias 💖 " +
+        horas + " horas 💕 " +
+        minutos + " minutos 💗 " +
+        segundos + " segundos";
+}
+
+setInterval(atualizarContador, 1000);
+atualizarContador();
+</script>
+
+</body>
+</html>
